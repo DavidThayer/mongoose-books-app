@@ -3,7 +3,12 @@ var Schema = mongoose.Schema;
 
 var BookSchema = new Schema({
   title: String,
-  author: String,
+  author: {
+    // reference to author model by id
+    // because book has one author (assumed) 
+    type: Schema.Types.ObjectId,
+    ref: 'Author'
+  },
   image: String,
   releaseDate: String
 });
